@@ -73,7 +73,7 @@
         <q-btn
           flat
           :class="['button-menu', isApiActive ? 'active' : '']"
-          @click="$emit('api')"
+          @click="handleApiDocs"
         >
           <svg
             width="20"
@@ -185,25 +185,9 @@ export default {
       type: Boolean,
       default: false,
     },
-    isApiActive: {
-      type: Boolean,
-      default: false,
-    },
-    isChangeLogActive: {
-      type: Boolean,
-      default: false,
-    },
   },
 
-  emits: [
-    "dashboards",
-    "calls",
-    "chats",
-    "agents",
-    "configs",
-    "api",
-    "changeLog",
-  ],
+  emits: ["dashboards", "calls", "chats", "agents"],
 
   data() {
     return {
@@ -212,6 +196,12 @@ export default {
       chatsOptions,
       agentsOptions,
     };
+  },
+
+  methods: {
+    handleApiDocs() {
+      this.$router.push({ name: "route_api_docs" });
+    },
   },
 };
 

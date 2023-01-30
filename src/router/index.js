@@ -8,15 +8,14 @@ const router = createRouter({
       path: "/",
       name: "main",
       component: MainLayout,
+      children: [
+        {
+          path: "/api-docs",
+          name: "route_api_docs",
+          component: () => import("../views/ApiList.vue"),
+        },
+      ],
     },
-    // {
-    //   path: "/about",
-    //   name: "about",
-    //   // route level code-splitting
-    //   // this generates a separate chunk (About.[hash].js) for this route
-    //   // which is lazy-loaded when the route is visited.
-    //   component: () => import("../views/AboutView.vue"),
-    // },
   ],
 });
 

@@ -24,14 +24,15 @@ import QueueHeader from "../QueueHeader.vue";
       :user="user"
     />
     <section class="column">
-      <div>
+      <!-- <div>
         <QueueHeader @changeView="onViewByAgent" />
       </div>
       <div>
         <h2 v-if="viewByAgent">Por agente</h2>
         <h2 v-else>Por atendimento</h2>
       </div>
-      <MainPage msg="Mensagem" />
+      <MainPage msg="Mensagem" /> -->
+      <RouterView />
     </section>
   </article>
 </template>
