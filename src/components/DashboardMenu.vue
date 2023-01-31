@@ -27,7 +27,13 @@
         <div>
           {{ description }}
         </div>
-        <q-btn class="botao-opcao" no-caps push v-close-popup>
+        <q-btn
+          class="botao-opcao"
+          no-caps
+          push
+          v-close-popup
+          @click="goTo(item)"
+        >
           Ir para {{ title }}
         </q-btn>
       </div>
@@ -55,6 +61,11 @@ export default {
     },
     selectItem({ title }) {
       this.link = title;
+    },
+
+    goTo(item) {
+      console.log({ item });
+      this.$router.push({ name: "general_dashboard" });
     },
   },
 };

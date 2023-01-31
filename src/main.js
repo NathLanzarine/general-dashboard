@@ -3,7 +3,8 @@ import { Quasar } from "quasar";
 import App from "./App.vue";
 import router from "./router";
 import "./styles/app.scss";
-import "tabulator-tables/dist/css/tabulator_midnight.min.css";
+import "tabulator-tables/dist/css/tabulator_semanticui.min.css";
+import "tabulator-tables/dist/css/tabulator_materialize.min.css";
 
 // Import icon libraries
 import "@quasar/extras/material-icons/material-icons.css";

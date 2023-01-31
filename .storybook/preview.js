@@ -5,6 +5,8 @@ import '@quasar/extras/animate/fadeInUp.css';
 import '@quasar/extras/animate/fadeOutDown.css';
 import '@quasar/extras/animate/fadeInRight.css';
 import '@quasar/extras/animate/fadeOutRight.css';
+import "tabulator-tables/dist/css/tabulator_semanticui.min.css";
+
 
 // Loads the quasar styles and registers quasar functionality with storybook
 import 'quasar/dist/quasar.css';

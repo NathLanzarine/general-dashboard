@@ -13,8 +13,24 @@ const Template = (args) => ({
   template: '<GeneralTable v-bind="args"/>',
 });
 
-export const FirstStory = Template.bind({});
+export const TableData = Template.bind({});
 
-FirstStory.args = {
-  msg: "Esse é o primeiro storie",
+TableData.args = {
+  tableData: [
+    {
+      agents: "Bruno Oliveira",
+      attendances: {
+        calls: 6,
+        chats: 8,
+      },
+      finish: 16,
+      exten: "0014",
+      rejections: 8,
+      callerNumber: "6733180700",
+      idle: 600,
+      duration: 300,
+      status: "Disponível",
+      doNotDisturb: true,
+    },
+  ],
 };

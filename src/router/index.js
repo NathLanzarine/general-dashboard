@@ -14,6 +14,11 @@ const router = createRouter({
           name: "route_api_docs",
           component: () => import("../views/ApiList.vue"),
         },
+        {
+          path: "/general-dashboard",
+          name: "general_dashboard",
+          component: () => import("../components/MainPage.vue"),
+        },
       ],
     },
   ],
