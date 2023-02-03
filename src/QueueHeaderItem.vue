@@ -11,11 +11,11 @@
   </div>
 </template>
 <script>
-import ActiveAgentsLogo from "./components/icons/ActiveAgentsLogo.vue";
-import CompletedLogo from "./components/icons/CompletedLogo.vue";
-import DiscardedLogo from "./components/icons/DiscardedLogo.vue";
-import AbandonedLogo from "./components/icons/AbandonedLogo.vue";
-import OngoingLogo from "./components/icons/OngoingLogo.vue";
+import ActiveAgentsLogo from "./assets/icons/ActiveAgentsLogo.vue";
+import CompletedLogo from "./assets/icons/CompletedLogo.vue";
+import DiscardedLogo from "./assets/icons/DiscardedLogo.vue";
+import AbandonedLogo from "./assets/icons/AbandonedLogo.vue";
+import OngoingLogo from "./assets/icons/OngoingLogo.vue";
 export default {
   components: {
     ActiveAgentsLogo,

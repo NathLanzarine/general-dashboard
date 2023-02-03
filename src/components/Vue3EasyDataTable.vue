@@ -89,9 +89,6 @@ export default {
   },
 
   watch: {
-    maxValue(maxValue) {
-      console.log({ maxValueNew: maxValue });
-    },
     itemsSelected: {
       deep: true,
       handler(itemsSelected) {

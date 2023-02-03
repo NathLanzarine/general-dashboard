@@ -10,9 +10,9 @@
 </template>
 
 <script>
-import ArrowAutoIcon from "./icons/ArrowAutoIcon.vue";
-import ArrowInIcon from "./icons/ArrowInIcon.vue";
-import ArrowOutIcon from "./icons/ArrowOutIcon.vue";
+import ArrowAutoIcon from "../assets/icons/ArrowAutoIcon.vue";
+import ArrowInIcon from "../assets/icons/ArrowInIcon.vue";
+import ArrowOutIcon from "../assets/icons/ArrowOutIcon.vue";
 
 export default {
   props: {
@@ -82,5 +82,3 @@ const formatPhoneNumber = (phone) => {
   return number;
 };
 </script>
-
-<style scoped></style>

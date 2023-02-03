@@ -1,6 +1,6 @@
 <script setup>
 import MainPage from "../components/MainPage.vue";
-import Header from "../Header.vue";
+import Header from "../HeaderMenu.vue";
 import QueueHeader from "../QueueHeader.vue";
 </script>
 
@@ -23,7 +23,10 @@ import QueueHeader from "../QueueHeader.vue";
       :isChangeLogActive="isChangeLogActive"
       :user="user"
     />
-    <section class="column">
+    <section>
+      <div class="b-atd">
+        <span>Filas de Atendimento</span>
+      </div>
       <!-- <div>
         <QueueHeader @changeView="onViewByAgent" />
       </div>
@@ -32,6 +35,7 @@ import QueueHeader from "../QueueHeader.vue";
         <h2 v-else>Por atendimento</h2>
       </div>
       <MainPage msg="Mensagem" /> -->
+
       <RouterView />
     </section>
   </article>
@@ -133,3 +137,20 @@ export default {
   },
 };
 </script>
+
+<style scoped>
+.b-atd {
+  width: 100%;
+  height: 50px;
+  background-color: #f0f0f0;
+  display: flex;
+  font-family: "Open Sans";
+  font-style: normal;
+  font-weight: 700;
+  font-size: 18px;
+  line-height: 25px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+</style>

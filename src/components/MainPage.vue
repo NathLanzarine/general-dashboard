@@ -5,16 +5,43 @@ import Vue3EasyDataTable from "./Vue3EasyDataTable.vue";
 
 <template>
   <!-- <GeneralTable :maxValue="maxValue" :tableData="tableData"> </GeneralTable> -->
-
-  <Vue3EasyDataTable
-    v-for="table in 1"
-    :key="table"
-    :maxValue="maxValue"
-    :dataTable="tableData"
-  />
+  <q-expansion-item
+    v-model="expand"
+    expand-icon-toggle
+    expand-icon-class="hidden"
+    class="q-pa-none"
+  >
+    <template #header>
+      <QueueHeader
+        v-model:expand="expand"
+        @expand="expand = !expand"
+        :queue-title="'Nome da Fila'"
+        :agents="10"
+        :completedCalls="10"
+        :discardedCalls="10"
+        :abandonedCalls="10"
+        :ongoingCalls="10"
+        :onHoldCalls="10"
+        :completedChats="10"
+        :ongoingChats="10"
+        :onHoldChats="10"
+      />
+    </template>
+    <q-card>
+      <q-card-section v-if="expand">
+        <Vue3EasyDataTable
+          v-for="table in 1"
+          :key="table"
+          :maxValue="maxValue"
+          :dataTable="tableData"
+        />
+      </q-card-section>
+    </q-card>
+  </q-expansion-item>
 </template>
 
 <script>
+import QueueHeader from "../QueueHeader.vue";
 export default {
   props: {
     msg: {
@@ -25,9 +52,9 @@ export default {
       type: Boolean,
     },
   },
-
   data() {
     return {
+      expand: true,
       maxValue: 0,
       tableData: [
         {
@@ -330,7 +357,6 @@ export default {
   mounted() {
     this.changeInfo();
   },
-
   methods: {
     changeInfo() {
       const vm = this;
@@ -347,15 +373,10 @@ export default {
           },
         }));
         vm.maxValue += 50;
-        console.log({ maxValue: vm.maxValue });
       }, 1000);
     },
   },
 
-  watch: {
-    maxValue(teste) {
-      console.log({ teste });
-    },
-  },
+  components: { QueueHeader },
 };
 </script>

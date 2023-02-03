@@ -1,1 +1,0 @@
-./icons/AgentsLogo.vue./icons/SettingsLogo.vue./icons/ArrowDown.vue./icons/ChatsLogo.vue./icons/IconPhone.vue./icons/DashboardsLogo.vue

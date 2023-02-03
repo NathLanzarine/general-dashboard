@@ -20,12 +20,12 @@
 
 <script>
 import { reactive, computed } from "vue";
-import AgentsLogo from "../components/icons/AgentsLogo.vue";
-import SettingsLogo from "../components/icons/SettingsLogo.vue";
-import ArrowDown from "../components/icons/ArrowDown.vue";
-import ChatsLogo from "../components/icons/ChatsLogo.vue";
-import IconPhone from "../components/icons/IconPhone.vue";
-import DashboardsLogo from "../components/icons/DashboardsLogo.vue";
+import AgentsLogo from "../assets/icons/AgentsLogo.vue";
+import SettingsLogo from "../assets/icons/SettingsLogo.vue";
+import ArrowDown from "../assets/icons/ArrowDown.vue";
+import ChatsLogo from "../assets/icons/ChatsLogo.vue";
+import IconPhone from "../assets/icons/IconPhone.vue";
+import DashboardsLogo from "../assets/icons/DashboardsLogo.vue";
 
 export default {
   name: "menu-button",

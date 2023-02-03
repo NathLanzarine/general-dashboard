@@ -152,7 +152,7 @@
 
 <script>
 import MenuButton from "./components/MenuButton.vue";
-import VonixLogo from "./components/icons/VonixLogo.vue";
+import VonixLogo from "./assets/icons/VonixLogo.vue";
 import DashboardMenu from "./components/DashboardMenu.vue";
 
 export default {

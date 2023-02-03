@@ -1,8 +1,8 @@
 import { within, userEvent } from "@storybook/testing-library";
-import MyHeader from "../Header.vue";
+import MyHeader from "../HeaderMenu.vue";
 
 export default {
-  title: "Example/Header",
+  title: "Example/HeaderMenu",
   component: MyHeader,
   parameters: {
     layout: "fullscreen",
