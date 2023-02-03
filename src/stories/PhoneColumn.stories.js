@@ -21,6 +21,6 @@ const Template = (args) => ({
 
 export const PhoneColumn = Template.bind({});
 PhoneColumn.args = {
-  number: "6733180700",
+  phone: "6733180700",
   direction: "IN",
 };

@@ -41,6 +41,10 @@
       </div>
     </template>
 
+    <template #item-callerNumber="item">
+      <PhoneColumn :phone="item.callerNumber" :direction="item.direction" />
+    </template>
+
     <template #item-status="item">
       <div class="row full-width justify-center">
         <StatusColumn :agentStatus="item.status" />
@@ -54,12 +58,14 @@ import ProgressColumn from "./ProgressColumn.vue";
 import AttendanceColumn from "./AttendanceColumn.vue";
 import StatusColumn from "./StatusColumn.vue";
 import DoNotDisturb from "./DoNotDisturb.vue";
+import PhoneColumn from "./PhoneColumn.vue";
 export default {
   components: {
     ProgressColumn,
     AttendanceColumn,
     StatusColumn,
     DoNotDisturb,
+    PhoneColumn,
   },
   props: {
     maxValue: {},
