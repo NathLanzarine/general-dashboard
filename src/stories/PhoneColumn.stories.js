@@ -2,7 +2,7 @@
 import MyPhoneColumn from "../components/PhoneColumn.vue";
 
 export default {
-  title: "Example/GeneralTable/PhoneColumn",
+  title: "Example/AgentRowsGeneral/PhoneColumn",
   component: MyPhoneColumn,
   parameters: {
     layout: "fullscreen",

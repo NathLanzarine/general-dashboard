@@ -2,7 +2,7 @@
 import MyStatusColumn from "../components/StatusColumn.vue";
 
 export default {
-  title: "Example/GeneralTable/StatusColumn",
+  title: "Example/AgentRowsGeneral/StatusColumn",
   component: MyStatusColumn,
   parameters: {
     layout: "fullscreen",

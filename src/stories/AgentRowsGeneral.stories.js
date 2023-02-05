@@ -1,22 +1,22 @@
-import GeneralTable from "../components/GeneralTable.vue";
+import MyAgentRowsGeneral from "../components/AgentRowsGeneral.vue";
 
 export default {
-  title: "Example/GeneralTable",
-  component: GeneralTable,
+  title: "Example/AgentRowsGeneral",
+  component: MyAgentRowsGeneral,
 };
 
 const Template = (args) => ({
-  components: { GeneralTable },
+  components: { MyAgentRowsGeneral },
   setup() {
     return { args };
   },
-  template: '<GeneralTable v-bind="args"/>',
+  template: '<MyAgentRowsGeneral v-bind="args"/>',
 });
 
-export const TableData = Template.bind({});
+export const TableByAgent = Template.bind({});
 
-TableData.args = {
-  tableData: [
+TableByAgent.args = {
+  dataTable: [
     {
       agents: "Bruno Oliveira",
       attendances: {
@@ -29,7 +29,7 @@ TableData.args = {
       callerNumber: "6733180700",
       idle: 600,
       duration: 300,
-      status: "Disponível",
+      status: "ONLINE",
       doNotDisturb: true,
     },
     {
@@ -44,8 +44,9 @@ TableData.args = {
       callerNumber: "6733180700",
       idle: 600,
       duration: 300,
-      status: "Pausado",
+      status: "PAUSED",
       doNotDisturb: false,
     },
   ],
+  maxValue: 50,
 };

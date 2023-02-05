@@ -1,6 +1,6 @@
 <script setup>
 // import GeneralTable from "./GeneralTable.vue";
-import Vue3EasyDataTable from "./Vue3EasyDataTable.vue";
+import AgentRowsGeneral from "./AgentRowsGeneral.vue";
 </script>
 
 <template>
@@ -29,7 +29,7 @@ import Vue3EasyDataTable from "./Vue3EasyDataTable.vue";
     </template>
     <q-card>
       <q-card-section v-if="expand">
-        <Vue3EasyDataTable
+        <AgentRowsGeneral
           v-for="table in 1"
           :key="table"
           :maxValue="maxValue"

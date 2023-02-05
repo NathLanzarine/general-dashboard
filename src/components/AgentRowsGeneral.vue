@@ -2,8 +2,11 @@
   <EasyDataTable
     :headers="headers"
     :items="dataTable"
+    hide-footer
+    table-min-height="0"
     alternating
-    table-class-name="customize-table"
+    footer-hide
+    table-class-name="customize-agent-table"
     header-text-direction="center"
     body-text-direction="center"
   >
@@ -100,7 +103,7 @@ export default {
 </script>
 
 <style scoped>
-.customize-table {
+.customize-agent-table {
   font-family: "Open Sans";
 
   --easy-table-header-font-size: 12px;
@@ -111,8 +114,8 @@ export default {
   --easy-table-body-row-font-size: 14px;
   --easy-table-body-row-font-color: #2e2e2e;
 
-  --easy-table-body-row-background-color: #fff;
-  --easy-table-body-even-row-background-color: #ebebeb;
+  --easy-table-body-row-background-color: #ebebeb;
+  --easy-table-body-even-row-background-color: #fff;
   --easy-table-body-row-hover-background-color: #e3f2fd;
 }
 </style>

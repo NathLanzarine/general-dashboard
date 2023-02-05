@@ -2,7 +2,7 @@
 import MyProgressColumn from "../components/ProgressColumn.vue";
 
 export default {
-  title: "Example/GeneralTable/ProgressColumn",
+  title: "Example/AgentRowsGeneral/ProgressColumn",
   component: MyProgressColumn,
   parameters: {
     layout: "fullscreen",

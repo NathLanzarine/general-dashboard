@@ -2,7 +2,7 @@
 import MyDoNotDisturb from "../components/DoNotDisturb.vue";
 
 export default {
-  title: "Example/GeneralTable/DoNotDisturb",
+  title: "Example/AgentRowsGeneral/DoNotDisturb",
   component: MyDoNotDisturb,
   parameters: {
     layout: "fullscreen",

@@ -61,6 +61,7 @@ const statusNames = {
   display: flex;
   align-items: center;
   justify-content: center;
+  justify-items: center;
   align-self: center;
 }
 </style>

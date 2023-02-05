@@ -2,7 +2,7 @@
 import MyAttendanceColumn from "../components/AttendanceColumn.vue";
 
 export default {
-  title: "Example/GeneralTable/AttendanceColumn",
+  title: "Example/AgentRowsGeneral/AttendanceColumn",
   component: MyAttendanceColumn,
   parameters: {
     layout: "fullscreen",
