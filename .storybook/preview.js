@@ -11,11 +11,13 @@ import "tabulator-tables/dist/css/tabulator_semanticui.min.css";
 // Loads the quasar styles and registers quasar functionality with storybook
 import 'quasar/dist/quasar.css';
 import { app } from '@storybook/vue3';
+import iconSet from 'quasar/icon-set/mdi-v4.js'
+import '@quasar/extras/mdi-v4/mdi-v4.css'
 import { Quasar } from 'quasar';
 
 // This is also where you would setup things such as pinia for storybook
 
-app.use(Quasar, {});
+app.use(Quasar, {iconSet});
 
 
 export const parameters = {

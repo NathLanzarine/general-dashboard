@@ -1,7 +1,7 @@
 <template>
   <q-btn
     flat
-    :class="['botao', isActive ? 'active' : '', classes]"
+    :class="['botao', isActive ? 'active' : '']"
     size="13px"
     no-caps
     text-color="white"
@@ -48,7 +48,6 @@ export default {
     isActive: {
       type: Boolean,
     },
-    classes: {},
   },
 
   emits: ["click"],

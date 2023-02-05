@@ -5,15 +5,16 @@
         <div v-if="user && user.name" class="row items-center q-m-none">
           <MenuButton
             label="Dashboards"
-            :classes="'q-pl-none q-pt-none'"
-            :isActive="isDashboardsActive"
             icon="DashboardsLogo"
-            @click="$emit('dashboards')"
+            :class="[
+              'q-pl-none q-pt-none',
+              isActive('dashboard') ? 'active' : '',
+            ]"
           >
             <template #vonixLogo>
-              <div class="icon">
+              <q-item to="/home" exact class="icon">
                 <VonixLogo />
-              </div>
+              </q-item>
             </template>
 
             <template #menuConfig>
@@ -26,9 +27,8 @@
 
           <MenuButton
             label="Chamadas"
-            :isActive="isCallsActive"
             icon="IconPhone"
-            @click="$emit('calls')"
+            :class="[isActive('chamadas') ? 'active' : '']"
           >
             <template #menuConfig>
               <DashboardMenu :items="callsOptions" />
@@ -37,9 +37,8 @@
 
           <MenuButton
             label="Conversas"
-            :isActive="isChatsActive"
             icon="ChatsLogo"
-            @click="$emit('chats')"
+            :class="[isActive('conversas') ? 'active' : '']"
           >
             <template #menuConfig>
               <DashboardMenu :items="chatsOptions" />
@@ -48,9 +47,8 @@
 
           <MenuButton
             label="Agentes"
-            :isActive="isAgentsActive"
             icon="AgentsLogo"
-            @click="$emit('agents')"
+            :class="[isActive('agents') ? 'active' : '']"
           >
             <template #menuConfig>
               <DashboardMenu :items="agentsOptions" />
@@ -59,10 +57,9 @@
 
           <MenuButton
             label="Configurações"
-            :isActive="isConfigActive"
             icon="SettingsLogo"
-            @click="$emit('configs')"
-          ></MenuButton>
+            :class="[isActive('configs') ? 'active' : '']"
+          />
         </div>
         <div v-else class="icon">
           <VonixLogo />
@@ -72,7 +69,7 @@
       <div class="row items-center">
         <q-btn
           flat
-          :class="['button-menu', isApiActive ? 'active' : '']"
+          :class="['button-menu', isActive('route_api_docs') ? 'active' : '']"
           @click="handleApiDocs"
         >
           <svg
@@ -91,8 +88,8 @@
 
         <q-btn
           flat
-          :class="['button-menu', isChangeLogActive ? 'active' : '']"
-          @click="$emit('changeLog')"
+          :class="['button-menu', isActive('changeLog') ? 'active' : '']"
+          @click="handleChangeLog"
         >
           <svg
             width="17"
@@ -165,29 +162,7 @@ export default {
       type: Object,
       default: null,
     },
-    isDashboardsActive: {
-      type: Boolean,
-      default: false,
-    },
-    isCallsActive: {
-      type: Boolean,
-      default: false,
-    },
-    isAgentsActive: {
-      type: Boolean,
-      default: false,
-    },
-    isChatsActive: {
-      type: Boolean,
-      default: false,
-    },
-    isConfigActive: {
-      type: Boolean,
-      default: false,
-    },
   },
-
-  emits: ["dashboards", "calls", "chats", "agents"],
 
   data() {
     return {
@@ -201,6 +176,18 @@ export default {
   methods: {
     handleApiDocs() {
       this.$router.push({ name: "route_api_docs" });
+    },
+    handleChangeLog() {
+      this.$router.push({ name: "changeLog" });
+    },
+
+    handleHome() {
+      this.$router.push({ name: "home" });
+    },
+
+    isActive(menuName) {
+      console.log({ ROUTE: this.$route });
+      return this.$route?.name.includes(menuName);
     },
   },
 };
@@ -342,10 +329,12 @@ const agentsOptions = [
 </script>
 
 <style scoped>
-.menuBotao {
-  left: 60px;
-  position: absolute;
+.button-menu {
+  font-weight: 700;
+  height: 60px;
   display: flex;
+
+  width: 60px;
 }
 
 .header {
@@ -361,34 +350,13 @@ const agentsOptions = [
 .botao {
   height: 60px;
   font-size: 13px;
+  font-weight: 700;
 }
 
 .active {
   background-color: #fd9802;
 }
-.button-menu {
-  font-family: "Work Sans";
-  font-style: normal;
-  font-weight: 700;
-  font-size: 13px;
-  line-height: 15px;
-  height: 60px;
-  display: flex;
 
-  color: #ffffff;
-
-  gap: 5px;
-
-  top: -1px;
-  width: 60px;
-  display: flex;
-  flex-direction: row;
-  align-items: center;
-  padding: 18px 13px 18px 18px;
-  background: #3d55ae;
-  border: 0;
-  cursor: pointer;
-}
 .main-menu {
   display: flex;
   font-family: "Work Sans";
@@ -396,16 +364,6 @@ const agentsOptions = [
   font-weight: 700;
   font-size: 13px;
   line-height: 15px;
-}
-
-.menu {
-  position: absolute;
-  background: white;
-  display: flex;
-  flex-direction: row;
-  left: 60px;
-  height: 60px;
-  width: 100px;
 }
 
 .icon {
@@ -419,9 +377,5 @@ const agentsOptions = [
   align-items: center;
   margin-right: 18px;
   justify-content: center;
-}
-
-.dashboard {
-  background: #fd9802;
 }
 </style>
