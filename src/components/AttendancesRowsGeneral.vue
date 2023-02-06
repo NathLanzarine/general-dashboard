@@ -1,7 +1,7 @@
 <template>
   <EasyDataTable
     :headers="headers"
-    :items="dataTable"
+    :items="makeRows"
     hide-footer
     alternating
     table-min-height="0"
@@ -17,7 +17,8 @@
 
     <template #item-agents="item">
       <div class="row items-center q-ml-md">
-        <strong>{{ item.agents }}</strong> <span class="q-ml-sm">7792</span>
+        <strong>{{ item.agents }}</strong>
+        <span class="q-ml-sm">{{ item.id }}</span>
       </div>
     </template>
 
@@ -33,7 +34,7 @@
       <div
         v-for="(call, index) in allAttendances(item)"
         :key="call.id"
-        :class="[lasChild(item, index) ? 'borderless-cell' : 'border-cell']"
+        :class="[lastChild(item, index) ? 'borderless-cell' : 'border-cell']"
       >
         <div v-if="isCalls(call, item)">
           <svg
@@ -73,7 +74,7 @@
       <div
         v-for="(attendance, index) in allAttendances(item)"
         :key="index"
-        :class="[lasChild(item, index) ? 'borderless-cell' : 'border-cell']"
+        :class="[lastChild(item, index) ? 'borderless-cell' : 'border-cell']"
       >
         <span>{{ attendance.createdAt }}</span>
       </div>
@@ -83,7 +84,7 @@
       <div
         v-for="(attendance, index) in allAttendances(item)"
         :key="attendance.id"
-        :class="[lasChild(item, index) ? 'borderless-cell' : 'border-cell']"
+        :class="[lastChild(item, index) ? 'borderless-cell' : 'border-cell']"
       >
         <span class="attendance-id">{{ attendance.id }}</span>
       </div>
@@ -93,7 +94,7 @@
       <div
         v-for="(attendance, index) in allAttendances(item)"
         :key="index"
-        :class="[lasChild(item, index) ? 'borderless-cell' : 'border-cell']"
+        :class="[lastChild(item, index) ? 'borderless-cell' : 'border-cell']"
       >
         <div>{{ attendance.since }}</div>
       </div>
@@ -105,7 +106,7 @@
         :key="index"
         :class="[
           'full-width',
-          lasChild(item, index) ? 'borderless-cell' : 'border-cell',
+          lastChild(item, index) ? 'borderless-cell' : 'border-cell',
         ]"
       >
         <div class="row full-width justify-end q-pr-sm">
@@ -141,8 +142,18 @@ export default {
     };
   },
 
+  computed: {
+    makeRows() {
+      return this.dataTable.filter(
+        (agent) =>
+          agent.generalAttendances?.chats?.length ||
+          agent.generalAttendances?.calls?.length
+      );
+    },
+  },
+
   methods: {
-    lasChild(item, index) {
+    lastChild(item, index) {
       return index === this.allAttendances(item).length - 1;
     },
 

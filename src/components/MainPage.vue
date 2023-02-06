@@ -1,6 +1,7 @@
 <script setup>
 // import GeneralTable from "./GeneralTable.vue";
 import AgentRowsGeneral from "./AgentRowsGeneral.vue";
+import AttendancesRowsGeneral from "./AttendancesRowsGeneral.vue";
 </script>
 
 <template>
@@ -15,6 +16,7 @@ import AgentRowsGeneral from "./AgentRowsGeneral.vue";
       <QueueHeader
         v-model:expand="expand"
         @expand="expand = !expand"
+        @change-view="viewByAgent = !viewByAgent"
         :queue-title="'Nome da Fila'"
         :agents="10"
         :completedCalls="10"
@@ -30,11 +32,12 @@ import AgentRowsGeneral from "./AgentRowsGeneral.vue";
     <q-card>
       <q-card-section v-if="expand">
         <AgentRowsGeneral
-          v-for="table in 1"
-          :key="table"
+          v-if="viewByAgent"
           :maxValue="maxValue"
           :dataTable="tableData"
         />
+
+        <AttendancesRowsGeneral v-else :dataTable="tableData" />
       </q-card-section>
     </q-card>
   </q-expansion-item>
@@ -56,8 +59,10 @@ export default {
     return {
       expand: true,
       maxValue: 0,
+      viewByAgent: true,
       tableData: [
         {
+          id: 1097,
           agents: "Bruno Oliveira",
           attendances: {
             calls: 0,
@@ -72,8 +77,39 @@ export default {
           duration: 300,
           status: "ONLINE",
           selected: false,
+          generalAttendances: {
+            calls: [
+              {
+                createdAt: 1675620240,
+                id: "1675620240.10638",
+                since: 1675621240,
+                status: "ONGOING",
+              },
+              {
+                createdAt: 1675620240,
+                id: "1675620240.10639",
+                since: 1675621240,
+                status: "UNAVAILABLE",
+              },
+            ],
+            chats: [
+              {
+                createdAt: 1675620240,
+                id: "10631",
+                since: 1675621240,
+                status: "ONGOING",
+              },
+              {
+                createdAt: 1675620240,
+                id: "10632",
+                since: 1675621240,
+                status: "ONLINE",
+              },
+            ],
+          },
         },
         {
+          id: 1098,
           agents: "Bruno Oliveira Santos",
           attendances: {
             calls: 60,
@@ -89,8 +125,51 @@ export default {
           status: "ONLINE",
           doNotDisturb: true,
           selected: false,
+          generalAttendances: {
+            calls: [
+              {
+                createdAt: 1675620240,
+                id: "1675620240.10638",
+                since: 1675621240,
+                status: "ONGOING",
+              },
+              {
+                createdAt: 1675620240,
+                id: "1675620240.10639",
+                since: 1675621241,
+                status: "UNAVAILABLE",
+              },
+              {
+                createdAt: 1675620240,
+                id: "1675620240.10640",
+                since: 1675621242,
+                status: "UNAVAILABLE",
+              },
+            ],
+            chats: [
+              {
+                createdAt: 1675620240,
+                id: "1675620240.10641",
+                since: 1675621243,
+                status: "ONGOING",
+              },
+              {
+                createdAt: 1675620240,
+                id: "1675620240.10642",
+                since: 1675621244,
+                status: "ONLINE",
+              },
+              {
+                createdAt: 1675620240,
+                id: "1675620240.10637",
+                since: 1675621245,
+                status: "ONLINE",
+              },
+            ],
+          },
         },
         {
+          id: 1099,
           agents: "Bruno Oliveira Santos",
           attendances: {
             calls: 660,
@@ -105,8 +184,39 @@ export default {
           duration: 300,
           status: "PAUSED",
           selected: false,
+          generalAttendances: {
+            calls: [
+              {
+                createdAt: 1675620240,
+                id: "1675620240.10638",
+                since: 1675621240,
+                status: "ONGOING",
+              },
+              {
+                createdAt: 1675620240,
+                id: "1675620240.10639",
+                since: 1675621240,
+                status: "UNAVAILABLE",
+              },
+            ],
+            chats: [
+              {
+                createdAt: 1675620240,
+                id: "10631",
+                since: 1675621240,
+                status: "ONGOING",
+              },
+              {
+                createdAt: 1675620240,
+                id: "10632",
+                since: 1675621240,
+                status: "ONLINE",
+              },
+            ],
+          },
         },
         {
+          id: 2097,
           agents: "Bruno Oliveira",
           attendances: {
             calls: 0,
@@ -121,8 +231,51 @@ export default {
           duration: 300,
           status: "ONTHEPHONE",
           selected: false,
+          generalAttendances: {
+            calls: [
+              {
+                createdAt: 1675620240,
+                id: "1675620240.10638",
+                since: 1675621240,
+                status: "ONGOING",
+              },
+              {
+                createdAt: 1675620240,
+                id: "1675620240.10639",
+                since: 1675621241,
+                status: "UNAVAILABLE",
+              },
+              {
+                createdAt: 1675620240,
+                id: "1675620240.10640",
+                since: 1675621242,
+                status: "UNAVAILABLE",
+              },
+            ],
+            chats: [
+              {
+                createdAt: 1675620240,
+                id: "1675620240.10641",
+                since: 1675621243,
+                status: "ONGOING",
+              },
+              {
+                createdAt: 1675620240,
+                id: "1675620240.10642",
+                since: 1675621244,
+                status: "ONLINE",
+              },
+              {
+                createdAt: 1675620240,
+                id: "1675620240.10637",
+                since: 1675621245,
+                status: "ONLINE",
+              },
+            ],
+          },
         },
         {
+          id: 1197,
           agents: "Bruno Oliveira Santos",
           attendances: {
             calls: 60,
@@ -140,6 +293,7 @@ export default {
           doNotDisturb: true,
         },
         {
+          id: 1297,
           agents: "Bruno Oliveira Santos",
           attendances: {
             calls: 660,
@@ -156,6 +310,7 @@ export default {
           selected: false,
         },
         {
+          id: 1397,
           agents: "Bruno Oliveira",
           attendances: {
             calls: 0,
@@ -172,6 +327,7 @@ export default {
           selected: false,
         },
         {
+          id: 1497,
           agents: "Bruno Oliveira Santos",
           attendances: {
             calls: 60,
@@ -187,8 +343,39 @@ export default {
           status: "ONLINE",
           selected: false,
           doNotDisturb: true,
+          generalAttendances: {
+            calls: [
+              {
+                createdAt: 1675620240,
+                id: "1675620240.10638",
+                since: 1675621240,
+                status: "ONGOING",
+              },
+              {
+                createdAt: 1675620240,
+                id: "1675620240.10639",
+                since: 1675621240,
+                status: "UNAVAILABLE",
+              },
+            ],
+            chats: [
+              {
+                createdAt: 1675620240,
+                id: "10631",
+                since: 1675621240,
+                status: "ONGOING",
+              },
+              {
+                createdAt: 1675620240,
+                id: "10632",
+                since: 1675621240,
+                status: "ONLINE",
+              },
+            ],
+          },
         },
         {
+          id: 1597,
           agents: "Bruno Oliveira Santos",
           attendances: {
             calls: 660,
@@ -205,6 +392,7 @@ export default {
           selected: false,
         },
         {
+          id: 1697,
           agents: "Bruno Oliveira",
           attendances: {
             calls: 0,
@@ -219,8 +407,39 @@ export default {
           duration: 300,
           status: "ONLINE",
           selected: false,
+          generalAttendances: {
+            calls: [
+              {
+                createdAt: 1675620240,
+                id: "1675620240.10638",
+                since: 1675621240,
+                status: "ONGOING",
+              },
+              {
+                createdAt: 1675620240,
+                id: "1675620240.10639",
+                since: 1675621240,
+                status: "UNAVAILABLE",
+              },
+            ],
+            chats: [
+              {
+                createdAt: 1675620240,
+                id: "10631",
+                since: 1675621240,
+                status: "ONGOING",
+              },
+              {
+                createdAt: 1675620240,
+                id: "10632",
+                since: 1675621240,
+                status: "ONLINE",
+              },
+            ],
+          },
         },
         {
+          id: 1797,
           agents: "Bruno Oliveira Santos",
           attendances: {
             calls: 60,
@@ -238,6 +457,7 @@ export default {
           doNotDisturb: true,
         },
         {
+          id: 1897,
           agents: "Bruno Oliveira Santos",
           attendances: {
             calls: 660,
@@ -252,8 +472,39 @@ export default {
           duration: 300,
           status: "PAUSED",
           selected: false,
+          generalAttendances: {
+            calls: [
+              {
+                createdAt: 1675620240,
+                id: "1675620240.10638",
+                since: 1675621240,
+                status: "ONGOING",
+              },
+              {
+                createdAt: 1675620240,
+                id: "1675620240.10639",
+                since: 1675621240,
+                status: "UNAVAILABLE",
+              },
+            ],
+            chats: [
+              {
+                createdAt: 1675620240,
+                id: "10631",
+                since: 1675621240,
+                status: "ONGOING",
+              },
+              {
+                createdAt: 1675620240,
+                id: "10632",
+                since: 1675621240,
+                status: "ONLINE",
+              },
+            ],
+          },
         },
         {
+          id: 1997,
           agents: "Bruno Oliveira",
           attendances: {
             calls: 0,
@@ -270,6 +521,7 @@ export default {
           selected: false,
         },
         {
+          id: 1007,
           agents: "Bruno Oliveira Santos",
           attendances: {
             calls: 60,
@@ -285,8 +537,39 @@ export default {
           status: "ONLINE",
           selected: false,
           doNotDisturb: true,
+          generalAttendances: {
+            calls: [
+              {
+                createdAt: 1675620240,
+                id: "1675620240.10638",
+                since: 1675621240,
+                status: "ONGOING",
+              },
+              {
+                createdAt: 1675620240,
+                id: "1675620240.10639",
+                since: 1675621240,
+                status: "UNAVAILABLE",
+              },
+            ],
+            chats: [
+              {
+                createdAt: 1675620240,
+                id: "10631",
+                since: 1675621240,
+                status: "ONGOING",
+              },
+              {
+                createdAt: 1675620240,
+                id: "10632",
+                since: 1675621240,
+                status: "ONLINE",
+              },
+            ],
+          },
         },
         {
+          id: 1017,
           agents: "Bruno Oliveira Santos",
           attendances: {
             calls: 660,
@@ -303,6 +586,7 @@ export default {
           selected: false,
         },
         {
+          id: 1027,
           agents: "Bruno Oliveira",
           attendances: {
             calls: 0,
@@ -317,8 +601,39 @@ export default {
           duration: 300,
           status: "ONLINE",
           selected: false,
+          generalAttendances: {
+            calls: [
+              {
+                createdAt: 1675620240,
+                id: "1675620240.10638",
+                since: 1675621240,
+                status: "ONGOING",
+              },
+              {
+                createdAt: 1675620240,
+                id: "1675620240.10639",
+                since: 1675621240,
+                status: "UNAVAILABLE",
+              },
+            ],
+            chats: [
+              {
+                createdAt: 1675620240,
+                id: "10631",
+                since: 1675621240,
+                status: "ONGOING",
+              },
+              {
+                createdAt: 1675620240,
+                id: "10632",
+                since: 1675621240,
+                status: "ONLINE",
+              },
+            ],
+          },
         },
         {
+          id: 1037,
           agents: "Bruno Oliveira Santos",
           attendances: {
             calls: 60,
@@ -336,6 +651,7 @@ export default {
           doNotDisturb: true,
         },
         {
+          id: 1047,
           agents: "Bruno Oliveira Santos",
           attendances: {
             calls: 660,
@@ -350,6 +666,36 @@ export default {
           duration: 300,
           status: "PAUSED",
           selected: false,
+          generalAttendances: {
+            calls: [
+              {
+                createdAt: 1675620240,
+                id: "1675620240.10638",
+                since: 1675621240,
+                status: "ONGOING",
+              },
+              {
+                createdAt: 1675620240,
+                id: "1675620240.10639",
+                since: 1675621240,
+                status: "UNAVAILABLE",
+              },
+            ],
+            chats: [
+              {
+                createdAt: 1675620240,
+                id: "10631",
+                since: 1675621240,
+                status: "ONGOING",
+              },
+              {
+                createdAt: 1675620240,
+                id: "10632",
+                since: 1675621240,
+                status: "ONLINE",
+              },
+            ],
+          },
         },
       ],
     };
@@ -359,21 +705,21 @@ export default {
   },
   methods: {
     changeInfo() {
-      const vm = this;
-      setInterval(() => {
-        this.tableData = this.tableData.map((data) => ({
-          ...data,
-          finish: data.finish + 2,
-          idle: data.idle * 2,
-          duration: data.duration++,
-          rejections: data.rejections + 20,
-          attendances: {
-            calls: data.attendances.calls + 2,
-            chats: data.attendances.chats + 3,
-          },
-        }));
-        vm.maxValue += 50;
-      }, 1000);
+      // const vm = this;
+      // setInterval(() => {
+      //   this.tableData = this.tableData.map((data) => ({
+      //     ...data,
+      //     finish: data.finish + 2,
+      //     idle: data.idle * 2,
+      //     duration: data.duration++,
+      //     rejections: data.rejections + 20,
+      //     attendances: {
+      //       calls: data.attendances.calls + 2,
+      //       chats: data.attendances.chats + 3,
+      //     },
+      //   }));
+      //   vm.maxValue += 50;
+      // }, 1000);
     },
   },
 

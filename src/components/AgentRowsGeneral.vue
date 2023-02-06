@@ -11,24 +11,25 @@
     body-text-direction="center"
   >
     <template #header-agents="header">
-      <div class="row full-width items-start">
-        <q-checkbox size="xs" v-model="header.agents">
-          {{ header.text }}
-        </q-checkbox>
-      </div>
+      <AgentsSelect :agents="dataTable" v-model="itemsSelected" />
     </template>
 
     <template #item-agents="item">
-      <div class="row items-center">
-        <q-checkbox class="col-auto" v-model="itemsSelected" size="xs">
+      <div class="agent-name row items-center">
+        <q-checkbox
+          color="indigo-7"
+          class="custom-check"
+          size="xs"
+          v-model="itemsSelected"
+          :val="item.id"
+        >
         </q-checkbox>
-
         <div class="col flex items-start">
-          <div class="row" v-if="item.doNotDisturb">
-            {{ item.agents }} <DoNotDisturb />
+          <div class="row items-center" v-if="item.doNotDisturb">
+            <strong>{{ item.agents }}</strong> <DoNotDisturb />
           </div>
           <div v-else>
-            {{ item.agents }}
+            <strong>{{ item.agents }}</strong>
           </div>
         </div>
       </div>
@@ -54,14 +55,17 @@
       </div>
     </template>
   </EasyDataTable>
+  <OnHoldQueue />
 </template>
 
 <script>
 import ProgressColumn from "./ProgressColumn.vue";
+import OnHoldQueue from "./OnHoldQueue.vue";
 import AttendanceColumn from "./AttendanceColumn.vue";
 import StatusColumn from "./StatusColumn.vue";
 import DoNotDisturb from "./DoNotDisturb.vue";
 import PhoneColumn from "./PhoneColumn.vue";
+import AgentsSelect from "./AgentsSelect.vue";
 export default {
   components: {
     ProgressColumn,
@@ -69,6 +73,8 @@ export default {
     StatusColumn,
     DoNotDisturb,
     PhoneColumn,
+    AgentsSelect,
+    OnHoldQueue,
   },
   props: {
     maxValue: {},
@@ -76,9 +82,10 @@ export default {
   },
   data() {
     return {
-      itemsSelected: [],
+      itemsSelected: [1097],
+      allSelected: false,
       headers: [
-        { text: "Agentes", value: "agents", sortable: true },
+        { text: "Agente", value: "agents", sortable: true },
         { text: "Atendimentos", value: "attendances" },
         { text: "Finalizados", value: "finish" },
         { text: "Ramal", value: "exten" },
@@ -92,17 +99,33 @@ export default {
   },
 
   watch: {
-    itemsSelected: {
-      deep: true,
-      handler(itemsSelected) {
-        console.log({ itemsSelected });
-      },
+    allSelected(allSelected) {
+      console.log({ allSelected });
+      if (!allSelected) return (this.itemsSelected = []);
+
+      this.itemsSelected = this.dataTable.map(({ id }) => id);
+    },
+    itemsSelected(itemsSelected) {
+      if (itemsSelected.length === this.dataTable.length)
+        return (this.allSelected = true);
+
+      this.allSelected = false;
     },
   },
 };
 </script>
 
 <style scoped>
+.q-checkbox__bg {
+  width: 14px;
+  height: 14px;
+  border: 1px solid #c5c5c5;
+  background: #fff;
+  display: flex;
+  align-items: center;
+  border-radius: 3px;
+}
+
 .customize-agent-table {
   font-family: "Open Sans";
 
@@ -117,5 +140,9 @@ export default {
   --easy-table-body-row-background-color: #ebebeb;
   --easy-table-body-even-row-background-color: #fff;
   --easy-table-body-row-hover-background-color: #e3f2fd;
+}
+
+.agent-name {
+  font-size: 12px;
 }
 </style>
