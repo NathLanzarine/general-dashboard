@@ -31,6 +31,7 @@ const colors = {
   UNAVAILABLE: "#535353",
   ONGOING: "#5DA8F3",
   OFFERING: "#E8900C",
+  ONHOLD: "#E8440C",
 };
 
 const statusNames = {
@@ -44,6 +45,7 @@ const statusNames = {
   UNAVAILABLE: "Indisponível",
   ONGOING: "Em Atendimento",
   OFFERING: "Em Oferecimento",
+  ONHOLD: "Em espera",
 };
 </script>
 

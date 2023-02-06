@@ -40,12 +40,15 @@
       </q-item-section>
     </q-item>
   </q-list>
+
+  <InProgress />
 </template>
 
 <script>
 import ApiBlueIcon from "@/assets/icons/ApiBlue.vue";
+import InProgress from "../components/InProgress.vue";
 
 export default {
-  components: { ApiBlueIcon },
+  components: { ApiBlueIcon, InProgress },
 };
 </script>

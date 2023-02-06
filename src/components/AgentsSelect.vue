@@ -158,7 +158,7 @@ const toJsonArr = (v) =>
 const isEqualArr = (v1, v2) => toJsonArr(v1) === toJsonArr(v2);
 </script>
 
-<style lang="sass">
+<style scoped lang="sass">
 .agent-selection
   font-style: normal
   font-weight: normal

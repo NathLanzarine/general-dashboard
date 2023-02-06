@@ -55,7 +55,7 @@
       </div>
     </template>
   </EasyDataTable>
-  <OnHoldQueue />
+  <OnHoldQueue :callsOnHold="onHold" />
 </template>
 
 <script>
@@ -79,6 +79,7 @@ export default {
   props: {
     maxValue: {},
     dataTable: {},
+    onHold: {},
   },
   data() {
     return {
@@ -90,10 +91,10 @@ export default {
         { text: "Finalizados", value: "finish" },
         { text: "Ramal", value: "exten" },
         { text: "Rejeições", value: "rejections" },
-        { text: "Número", value: "callerNumber" },
-        { text: "Ociosidade", value: "idle", width: 200 },
-        { text: "Duração", value: "duration" },
-        { text: "Status", value: "status" },
+        { text: "Número", value: "callerNumber", width: 160 },
+        { text: "Ociosidade", value: "idle", width: 100 },
+        { text: "Duração", value: "duration", width: 80 },
+        { text: "Status", value: "status", width: 150 },
       ],
     };
   },

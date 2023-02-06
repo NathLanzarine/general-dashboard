@@ -1,7 +1,7 @@
-import MyAttendances from "../components/generalView/ChartAttendances.vue";
+import MyAttendances from "../components/generalView/ChartAttendancesBar.vue";
 
 export default {
-  title: "Example/Attendances",
+  title: "Example/Charts",
   component: MyAttendances,
   parameters: {
     layout: "fullscreen",

@@ -1,9 +1,11 @@
 <template>
   <div class="row items-center justify-between">
-    <ArrowInIcon v-if="isIn(direction)" />
-    <ArrowAutoIcon v-if="isAuto(direction)" />
-    <ArrowOutIcon v-if="isOut(direction)" />
-    <span class="col-auto">
+    <div :class="['flex', classes]">
+      <ArrowInIcon v-if="isIn(direction)" />
+      <ArrowAutoIcon v-if="isAuto(direction)" />
+      <ArrowOutIcon v-if="isOut(direction)" />
+    </div>
+    <span class="col-auto q-ml-xs">
       {{ formatPhone(phone) }}
     </span>
   </div>
@@ -18,6 +20,7 @@ export default {
   props: {
     phone: {},
     direction: {},
+    classes: {},
   },
   methods: {
     formatPhone(phone) {
@@ -82,3 +85,19 @@ const formatPhoneNumber = (phone) => {
   return number;
 };
 </script>
+
+<style scoped>
+.icon {
+  width: 24px;
+  height: 24px;
+  display: flex;
+  border-radius: 3px;
+  align-items: center;
+  justify-content: center;
+  background: white;
+}
+
+.icon > svg {
+  background: white;
+}
+</style>
