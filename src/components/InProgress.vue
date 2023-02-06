@@ -20,8 +20,6 @@
         </span>
       </p>
     </div>
-
-    <q-btn @click="testeStore">click</q-btn>
   </div>
 </template>
 
@@ -30,19 +28,6 @@ export default {
   props: {
     ongoing: {
       // amount: 15,
-    },
-  },
-
-  data() {
-    return {
-      // amount: 15,
-    };
-  },
-
-  methods: {
-    testeStore() {
-      this.$store.commit("increment");
-      console.log(this.$store.state.count);
     },
   },
 };

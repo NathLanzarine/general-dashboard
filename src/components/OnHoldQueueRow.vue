@@ -26,7 +26,9 @@
           />
         </div>
         <div class="col-2">
-          <div class="row justify-end q-mr-sm">{{ timeOnHold }}</div>
+          <div class="row justify-end q-mr-sm">
+            <ColumnTime :time="timeOnHold" />
+          </div>
         </div>
         <div class="col-auto q-ml-lg">
           <StatusColumn agentStatus="ONHOLD" />
@@ -39,13 +41,15 @@
 <script>
 import StatusColumn from "../components/StatusColumn.vue";
 import PhoneColumn from "../components/PhoneColumn.vue";
+import ColumnTime from "./ColumnTime.vue";
+
 export default {
   props: {
     callDirection: {},
     phoneNumber: {},
     timeOnHold: {},
   },
-  components: { StatusColumn, PhoneColumn },
+  components: { StatusColumn, PhoneColumn, ColumnTime },
   data() {
     return {};
   },
@@ -64,7 +68,7 @@ export default {
   font-family: "Open Sans";
   font-size: 13px;
   font-weight: 700;
-  background-color: #ffcdd2;
+  background-color: #fae7e8;
   border-bottom: 2px solid #fff;
 }
 
@@ -73,6 +77,10 @@ export default {
   flex-direction: column;
   align-content: center;
   margin-left: 10px;
+}
+
+.slaDanger {
+  background-color: #ffcdd2;
 }
 .phone-col {
   color: #2e2e2e;

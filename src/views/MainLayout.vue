@@ -19,8 +19,6 @@ import ToolbarLayout from "./ToolbarLayout.vue";
 export default {
   data() {
     return {
-      msg: "",
-
       viewByAgent: true,
       user: {
         name: "Rodrigo Santos",

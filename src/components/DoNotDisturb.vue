@@ -20,7 +20,7 @@
 export default {};
 </script>
 
-<style>
+<style scoped>
 .do-not-disturb {
   display: flex;
   flex-direction: row;

@@ -3,7 +3,7 @@
     :headers="headers"
     :items="dataTable"
     hide-footer
-    table-min-height="0"
+    :table-min-height="0"
     alternating
     footer-hide
     table-class-name="customize-agent-table"
@@ -49,6 +49,14 @@
       <PhoneColumn :phone="item.callerNumber" :direction="item.direction" />
     </template>
 
+    <template #item-idle="item">
+      <ColumnTime :time="item.idle" />
+    </template>
+
+    <template #item-duration="item">
+      <ColumnTime :time="item.duration" />
+    </template>
+
     <template #item-status="item">
       <div class="row full-width justify-center">
         <StatusColumn :agentStatus="item.status" />
@@ -66,6 +74,7 @@ import StatusColumn from "./StatusColumn.vue";
 import DoNotDisturb from "./DoNotDisturb.vue";
 import PhoneColumn from "./PhoneColumn.vue";
 import AgentsSelect from "./AgentsSelect.vue";
+import ColumnTime from "./ColumnTime.vue";
 export default {
   components: {
     ProgressColumn,
@@ -75,6 +84,7 @@ export default {
     PhoneColumn,
     AgentsSelect,
     OnHoldQueue,
+    ColumnTime,
   },
   props: {
     maxValue: {},
@@ -83,7 +93,7 @@ export default {
   },
   data() {
     return {
-      itemsSelected: [1097],
+      itemsSelected: [],
       allSelected: false,
       headers: [
         { text: "Agente", value: "agents", sortable: true },
@@ -93,7 +103,7 @@ export default {
         { text: "Rejeições", value: "rejections" },
         { text: "Número", value: "callerNumber", width: 160 },
         { text: "Ociosidade", value: "idle", width: 100 },
-        { text: "Duração", value: "duration", width: 80 },
+        { text: "Duração", value: "duration", width: 100 },
         { text: "Status", value: "status", width: 150 },
       ],
     };

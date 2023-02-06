@@ -4,7 +4,7 @@
     :items="makeRows"
     hide-footer
     alternating
-    table-min-height="0"
+    :table-min-height="0"
     table-class-name="customize-table"
     header-text-direction="center"
     body-text-direction="center"

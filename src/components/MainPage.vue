@@ -5,9 +5,8 @@ import AttendancesRowsGeneral from "./AttendancesRowsGeneral.vue";
 </script>
 
 <template>
-  <!-- <GeneralTable :maxValue="maxValue" :tableData="tableData"> </GeneralTable> -->
   <q-expansion-item
-    v-for="index in 100"
+    v-for="index in 1"
     :key="index"
     v-model="expand"
     expand-icon-toggle
@@ -48,13 +47,10 @@ import AttendancesRowsGeneral from "./AttendancesRowsGeneral.vue";
 
 <script>
 import QueueHeader from "../QueueHeader.vue";
-// import { mapState } from "vuex";
+import { mapStores } from "pinia";
+import { useDashboard } from "@/store/dashboardStore";
 export default {
   props: {
-    msg: {
-      type: String,
-      required: true,
-    },
     isTable: {
       type: Boolean,
     },
@@ -70,19 +66,20 @@ export default {
   },
 
   computed: {
+    ...mapStores(useDashboard),
     dataTable() {
-      return this.$store.state.tableData;
+      return this.dashboardStore.tableData;
     },
     onHoldCalls() {
-      return this.$store.state.onHoldCalls;
+      return this.dashboardStore.onHoldCalls;
     },
     maxValue() {
-      return this.$store.state.maxValue;
+      return this.dashboardStore.maxValue;
     },
   },
   methods: {
     changeInfo() {
-      setInterval(() => this.$store.commit("increment"), 1000);
+      setInterval(() => this.dashboardStore.increment(), 1000);
     },
   },
 

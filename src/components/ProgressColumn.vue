@@ -1,7 +1,7 @@
 <template>
   <div class="progress">
     <div>
-      <span class="finish"> {{ value }} </span> / {{ maxValue }}
+      <span class="finish"> {{ value }} </span> / {{ maxValue }}%
     </div>
     <div class="progress-bar2">
       <div class="progress-bar" :style="style(maxValue)"></div>

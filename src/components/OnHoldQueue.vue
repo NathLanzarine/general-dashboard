@@ -39,6 +39,7 @@
       :callDirection="call.callDirection"
       :phoneNumber="call.phoneNumber"
       :timeOnHold="call.timeOnHold"
+      :class="[isActive(call.timeOnHold) ? 'slaDanger' : '']"
     />
   </div>
 </template>
@@ -59,6 +60,11 @@ export default {
     return {
       expanded: true,
     };
+  },
+  methods: {
+    isActive(timeOnHold) {
+      return timeOnHold > 2;
+    },
   },
 };
 </script>
@@ -81,81 +87,10 @@ export default {
 .q-expansion-item {
   border-bottom: 1px solid #fff;
 }
-.header-border {
-  width: 1px;
-  background: white;
-}
 
 .chevron {
   height: 24px;
   width: 24px;
   margin-left: 11px;
 }
-
-.hold-row {
-  height: 34px;
-  width: 100%;
-  display: flex;
-  align-items: center;
-  flex-direction: row;
-  background-color: #ffcdd2;
-  border-bottom: 2px solid #fff;
-}
-
-.icon {
-  margin-left: 20px;
-}
-
-.q-item {
-  padding: 0px !important;
-}
-
-/* .fundo {
-  background-color: #ffcdd2;
-}
-
-.fundo-2 {
-  background-color: #fae7e8;
-}
-
-.fundoespera {
-  height: 45px;
-  background: #ffcdd2;
-  border-bottom: 2px solid #ffffff;
-}
-
-.espera {
-  font-family: "Open Sans";
-  font-style: normal;
-  font-weight: 700;
-  font-size: 12px;
-  line-height: 16px;
-  display: flex;
-  align-items: center;
-  color: red;
-}
-
-.arrow {
-  padding-left: 1035px;
-  color: #fff;
-}
-
-.icon-seta {
-  padding-right: 5px;
-}
-
-.icon {
-  position: absolute;
-  font-family: "Open Sans";
-  font-style: normal;
-  font-weight: 700;
-  font-size: 15px;
-  line-height: 20px;
-  color: #ffffff;
-
-  box-sizing: border-box;
-  background: #e8440c;
-  border: 0px solid #e8440c;
-  border-radius: 6px;
-} */
 </style>
