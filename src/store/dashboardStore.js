@@ -655,38 +655,48 @@ const state = {
           },
         },
       ],
-      onHoldCalls: [
-        {
-          callDirection: "IN",
-          phoneNumber: "6733180700",
-          timeOnHold: 1675713562,
-        },
-        {
-          callDirection: "OUT",
-          phoneNumber: "6733180765",
-          timeOnHold: 1675713562,
-        },
-        {
-          callDirection: "AUTO",
-          phoneNumber: "6733180788",
-          timeOnHold: 1675713562,
-        },
-        {
-          callDirection: "AUTO",
-          phoneNumber: "6733180788",
-          timeOnHold: 1675713562,
-        },
-        {
-          callDirection: "AUTO",
-          phoneNumber: "6733180788",
-          timeOnHold: 1675713562,
-        },
-        {
-          callDirection: "AUTO",
-          phoneNumber: "6733180788",
-          timeOnHold: 1675713562,
-        },
-      ],
+      onHold: {
+        total: 7,
+        onHoldShowCalls: [
+          {
+            callDirection: "IN",
+            phoneNumber: "6733180700",
+            timeOnHold: 1675713563,
+          },
+          {
+            callDirection: "OUT",
+            phoneNumber: "6733180701",
+            timeOnHold: 1675713562,
+          },
+          {
+            callDirection: "AUTO",
+            phoneNumber: "6733180702",
+            timeOnHold: 1675713565,
+          },
+          {
+            callDirection: "AUTO",
+            phoneNumber: "6733180703",
+            timeOnHold: 1675713564,
+          },
+          {
+            callDirection: "AUTO",
+            phoneNumber: "6733180704",
+            timeOnHold: 1675713566,
+          },
+        ],
+        onHoldHideCalls: [
+          {
+            callDirection: "AUTO",
+            phoneNumber: "6733180705",
+            timeOnHold: 1675713567,
+          },
+          {
+            callDirection: "AUTO",
+            phoneNumber: "6733180706",
+            timeOnHold: 1675713567,
+          },
+        ],
+      },
     },
   ],
   queueStatus: "",

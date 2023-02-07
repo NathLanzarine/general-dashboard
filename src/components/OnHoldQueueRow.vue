@@ -13,12 +13,12 @@
             :classes="'icon'"
           />
         </div>
-        <div class="col-2">
-          <div class="row justify-end q-mr-sm">
+        <div class="col-3">
+          <div class="row justify-end q-mr-md">
             <ColumnTime :time="timeOnHold" />
           </div>
         </div>
-        <div class="col-auto q-ml-lg">
+        <div class="col-auto q-ml-md">
           <StatusColumn agentStatus="ONHOLD" />
         </div>
       </div>
@@ -74,6 +74,6 @@ export default {
 .phone-col {
   color: #2e2e2e;
   min-width: 140px;
-  margin-right: 20px;
+  margin-right: 30px;
 }
 </style>

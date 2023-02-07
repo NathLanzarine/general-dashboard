@@ -63,7 +63,12 @@
       </div>
     </template>
   </EasyDataTable>
-  <OnHoldQueue :callsOnHold="onHold" />
+
+  <OnHoldQueue
+    :showCalls="onHold.onHoldShowCalls"
+    :hideCalls="onHold.onHoldHideCalls"
+    :total="onHold.total"
+  />
 </template>
 
 <script>

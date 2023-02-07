@@ -8,10 +8,10 @@
     >
       <template #header>
         <div class="row full-width items-center justify-between">
-          <div class="col">Em Espera ({{ callsOnHold.length }})</div>
+          <div class="col">Em Espera ({{ total }})</div>
 
           <div
-            v-if="callsOnHold.length > 5"
+            v-if="total > 5"
             class="col-auto cursor-pointer chevron"
             @click="expanded = !expanded"
           >
@@ -21,26 +21,29 @@
           </div>
         </div>
       </template>
-
-      <q-card class="card q-pa-none">
-        <q-card-section class="q-pa-none">
-          <!-- <OnHoldQueueRow
-            :callDirection="callDirection"
-            :phoneNumber="phoneNumber"
-          /> -->
-          <!-- <OnHoldQueueRow /> -->
-        </q-card-section>
-      </q-card>
     </q-expansion-item>
 
     <OnHoldQueueRow
-      v-for="(call, index) in callsOnHold"
+      v-for="(call, index) in showCalls"
       :key="index"
       :callDirection="call.callDirection"
       :phoneNumber="call.phoneNumber"
       :timeOnHold="call.timeOnHold"
       :class="[isActive(call.timeOnHold) ? 'slaDanger' : '']"
     />
+
+    <q-card v-if="expanded" class="card q-pa-none">
+      <q-card-section class="q-pa-none">
+        <OnHoldQueueRow
+          v-for="(call, index) in hideCalls"
+          :key="index"
+          :callDirection="call.callDirection"
+          :phoneNumber="call.phoneNumber"
+          :timeOnHold="call.timeOnHold"
+          :class="[isActive(call.timeOnHold) ? 'slaDanger' : '']"
+        />
+      </q-card-section>
+    </q-card>
   </div>
 </template>
 
@@ -51,9 +54,9 @@ import OnHoldQueueRow from "./OnHoldQueueRow.vue";
 
 export default {
   props: {
-    callsOnHold: {
-      type: Array,
-    },
+    showCalls: {},
+    hideCalls: {},
+    total: {},
   },
   components: { ChevronUpIcon, ChevronDownIcon, OnHoldQueueRow },
   data() {
