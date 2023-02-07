@@ -10,7 +10,7 @@
     header-text-direction="center"
     body-text-direction="center"
   >
-    <template #header-agents="header">
+    <template #header-agents>
       <AgentsSelect :agents="dataTable" v-model="itemsSelected" />
     </template>
 
@@ -36,7 +36,7 @@
     </template>
 
     <template #item-attendances="item">
-      <AttendanceColumn :attendances="item.attendances" :maxValue="maxValue" />
+      <AttendanceColumn :attendances="item.attendances" />
     </template>
 
     <template #item-finish="item">
@@ -67,14 +67,14 @@
 </template>
 
 <script>
-import ProgressColumn from "./ProgressColumn.vue";
-import OnHoldQueue from "./OnHoldQueue.vue";
-import AttendanceColumn from "./AttendanceColumn.vue";
-import StatusColumn from "./StatusColumn.vue";
-import DoNotDisturb from "./DoNotDisturb.vue";
-import PhoneColumn from "./PhoneColumn.vue";
-import AgentsSelect from "./AgentsSelect.vue";
-import ColumnTime from "./ColumnTime.vue";
+import ProgressColumn from "@/components/ProgressColumn.vue";
+import OnHoldQueue from "@/components/OnHoldQueue.vue";
+import AttendanceColumn from "@/components/AttendanceColumn.vue";
+import StatusColumn from "@/components/StatusColumn.vue";
+import DoNotDisturb from "@/components/DoNotDisturb.vue";
+import PhoneColumn from "@/components/PhoneColumn.vue";
+import AgentsSelect from "@/components/AgentsSelect.vue";
+import ColumnTime from "@/components/ColumnTime.vue";
 export default {
   components: {
     ProgressColumn,
@@ -96,7 +96,7 @@ export default {
       itemsSelected: [],
       allSelected: false,
       headers: [
-        { text: "Agente", value: "agents", sortable: true },
+        { text: "Agente", value: "agents" },
         { text: "Atendimentos", value: "attendances" },
         { text: "Finalizados", value: "finish" },
         { text: "Ramal", value: "exten" },

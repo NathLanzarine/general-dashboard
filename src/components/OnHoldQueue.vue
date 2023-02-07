@@ -45,8 +45,8 @@
 </template>
 
 <script>
-import ChevronUpIcon from "../assets/icons/ChevronUpIcon.vue";
-import ChevronDownIcon from "../assets/icons/ChevronDownIcon.vue";
+import ChevronUpIcon from "@/assets/icons/ChevronUpIcon.vue";
+import ChevronDownIcon from "@/assets/icons/ChevronDownIcon.vue";
 import OnHoldQueueRow from "./OnHoldQueueRow.vue";
 
 export default {

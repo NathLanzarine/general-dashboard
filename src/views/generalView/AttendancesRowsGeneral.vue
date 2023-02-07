@@ -118,7 +118,7 @@
 </template>
 
 <script>
-import StatusColumn from "./StatusColumn.vue";
+import StatusColumn from "@/components/StatusColumn.vue";
 export default {
   components: {
     StatusColumn,

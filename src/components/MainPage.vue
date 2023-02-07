@@ -6,7 +6,7 @@ import AttendancesRowsGeneral from "./AttendancesRowsGeneral.vue";
 
 <template>
   <q-expansion-item
-    v-for="index in 1"
+    v-for="index in 20"
     :key="index"
     v-model="expand"
     expand-icon-toggle

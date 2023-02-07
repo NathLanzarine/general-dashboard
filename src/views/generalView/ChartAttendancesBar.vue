@@ -66,10 +66,10 @@
 </template>
 
 <script>
-import ChevronUpIcon from "../../assets/icons/ChevronUpIcon.vue";
-import ChevronDownIcon from "../../assets/icons/ChevronDownIcon.vue";
-import SettingsLogo from "../../assets/icons/SettingsLogo.vue";
-import CloseIcon from "../../assets/icons/CloseIcon.vue";
+import ChevronUpIcon from "@/assets/icons/ChevronUpIcon.vue";
+import ChevronDownIcon from "@/assets/icons/ChevronDownIcon.vue";
+import SettingsLogo from "@/assets/icons/SettingsLogo.vue";
+import CloseIcon from "@/assets/icons/CloseIcon.vue";
 
 export default {
   components: { ChevronUpIcon, ChevronDownIcon, SettingsLogo, CloseIcon },

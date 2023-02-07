@@ -1,5 +1,6 @@
 import { createRouter, createWebHistory } from "vue-router";
 import MainLayout from "../views/MainLayout.vue";
+import GeneralView from "../views/GeneralView.vue";
 
 const router = createRouter({
   history: createWebHistory(import.meta.env.BASE_URL),
@@ -24,13 +25,13 @@ const router = createRouter({
         {
           path: "/general-dashboard",
           name: "general_dashboard",
+          component: GeneralView,
           meta: {
             name: "Dashboard Geral",
             description: "Visão geral",
             showQueues: true,
             breadcrumb: [{ label: "Dashboards" }, { label: "Geral" }],
           },
-          component: () => import("../components/MainPage.vue"),
         },
         {
           path: "/home",

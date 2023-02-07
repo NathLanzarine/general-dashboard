@@ -8,9 +8,6 @@ import ToolbarLayout from "./ToolbarLayout.vue";
     <Header :user="user" />
     <ToolbarLayout />
     <section>
-      <div class="b-atd">
-        <span>Filas de Atendimento</span>
-      </div>
       <RouterView />
     </section>
   </article>
@@ -19,34 +16,10 @@ import ToolbarLayout from "./ToolbarLayout.vue";
 export default {
   data() {
     return {
-      viewByAgent: true,
       user: {
-        name: "Rodrigo Santos",
+        name: "Usuario dos Santos",
       },
     };
   },
-
-  methods: {
-    onViewByAgent(args) {
-      this.viewByAgent = args;
-    },
-  },
 };
 </script>
-
-<style scoped>
-.b-atd {
-  width: 100%;
-  height: 50px;
-  background-color: #f0f0f0;
-  display: flex;
-  font-family: "Open Sans";
-  font-style: normal;
-  font-weight: 700;
-  font-size: 18px;
-  line-height: 25px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-}
-</style>
